@@ -4,5 +4,18 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "mongoose": "^7.0.0"
-  }
+  },
+  "name": "super-market-backend",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "build": "echo success",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
