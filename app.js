@@ -8,7 +8,7 @@ app.use(cors());
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(bodyparser.json());
 const PORT = process.env.PORT || 3002;
-mongoose.connect('mongodb://0.0.0.0:27017/Super-Market').then(()=>{
+mongoose.connect('mongodb+srv://pugazh1110:Gr7V9gJXp8RCuDAN@cluster0.cisprxk.mongodb.net/Super-Market').then(()=>{
     console.log('connected')
 })
 
