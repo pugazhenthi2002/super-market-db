@@ -26,16 +26,16 @@ app.get('/api/v1/viewlist',async function(req,res,next){
     }
 })
 
-app.post('/api/v1/entrylist')=async(req,res)=>{
+app.post('/api/v1/entrylist',(req,res)=>{
     try{
-        await ItemList.create(req.body);
+        ItemList.create(req.body);
         res.send('created');
     }
     catch(error){
         console.log(error);
         res.send("Error Happened");
     }
-}
+})
 
 app.listen(PORT,function(){
     console.log("Server is running")
