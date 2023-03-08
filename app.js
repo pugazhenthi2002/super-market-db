@@ -26,6 +26,16 @@ app.get('/api/v1/viewlist',async function(req,res,next){
     }
 })
 
+app.put('api/v1/updatelist/:item_id',async function(req,res){
+    try{
+        await ItemList.findOneAndUpdate(req.params.item_id,req.body);
+        res.send('updated');
+    }
+    catch(error){
+        res.send("Error Happened");
+    }
+})
+
 app.post('/api/v1/entrylist',(req,res)=>{
     try{
         ItemList.create(req.body);
@@ -36,6 +46,8 @@ app.post('/api/v1/entrylist',(req,res)=>{
         res.send("Error Happened");
     }
 })
+
+
 
 app.listen(PORT,function(){
     console.log("Server is running")
