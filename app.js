@@ -4,6 +4,7 @@ const bodyparser= require('body-parser');
 const app=new express;
 const ItemList=require('./app_list');
 const cors=require('cors');
+const { findByIdAndUpdate, findOneAndUpdate } = require('./app_list');
 app.use(cors());
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(bodyparser.json());
@@ -26,11 +27,12 @@ app.get('/api/v1/viewlist',async function(req,res,next){
     }
 })
 
-app.put('api/v1/updatelist/:item_id',async function(req,res){
+app.put('/api/v1/updateitem/:item_id',async function(req,res){
     try{
-        await ItemList.findOneAndUpdate(req.params.item_id,req.body);
+        await ItemList.findOneAndUpdate({item_id: req.params.item_id},req.body);
         res.send('updated');
     }
+    
     catch(error){
         res.send("Error Happened");
     }
@@ -47,8 +49,10 @@ app.post('/api/v1/entrylist',(req,res)=>{
     }
 })
 
-
-
 app.listen(PORT,function(){
     console.log("Server is running")
 })
+
+// app.listen(8081,() =>{
+//     console.log('Server is running');
+// })
